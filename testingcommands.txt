@@ -1,0 +1,17 @@
+testing commands
+
+test game for tictactoe:
+python3 -m gridgame -n 3 -p 2 --variant tictactoe --symbols X,O
+
+test game for notakto:
+python3 -m gridgame -n 3 -p 2 --variant notakto --symbols O
+
+python3 -m gridgame -n 3 -p 4 --variant notakto --symbols O
+
+test game for Wild
+python3 -m gridgame -n 3 -p 2 --variant wild --symbols X,O
+
+python3 -m gridgame -n 3 -p 4 --variant wild --symbols X,O
+
+test game for pick15
+python3 -m gridgame -n 3 -p 2 --variant pick15

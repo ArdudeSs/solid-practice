@@ -1,6 +1,6 @@
 import argparse
 
-from gridgame.model import GridGameModel
+from gridgame.model import GridGameModel, TicTacToeGameModel, NoTakToGameModel, WildGameModel, Pick15GameModel
 from gridgame.view import View
 from gridgame.controller import Controller
 
@@ -26,20 +26,32 @@ def setup_parser():
 def make_model(args: argparse.Namespace):
     match args.variant:
         case "tictactoe":
-            return GridGameModel(
+            return TicTacToeGameModel(
                 grid_size=args.size,
                 player_count=args.player_count,
                 player_symbols=args.symbols,
             )
 
-        case "wild":
-            raise NotImplementedError('wild variant is not yet implemented')
-
         case "notakto":
-            raise NotImplementedError('notakto variant is not yet implemented')
+            # return NotImplementedError('notakto variant is not yet implemented')
+            return NoTakToGameModel(
+                grid_size=args.size,
+                player_count=args.player_count,
+                player_symbols=args.symbols,
+                )
+
+        case "wild":
+            return WildGameModel(
+                grid_size=args.size,
+                player_count=args.player_count,
+                player_symbols=args.symbols,
+                )
 
         case "pick15":
-            raise NotImplementedError('pick15 variant is not yet implemented')
+            return Pick15GameModel(
+                grid_size=args.size,
+                player_count=args.player_count
+                )
 
         case _:
             raise NotImplementedError(f'Variant "{args.variant}" is unknown')
